@@ -11,12 +11,12 @@
             <div class="flex-grow flex flex-col">
              
                 <a href="/manage">Listings</a>
-                <a href="mailto:fruitful2007@outlook.com">Get Source Code</a>
+                <a href="mailto:praise.njoga@gmail.com" target="_blank">Get Source Code</a>
             </div>
            
         </div>
         <div class="text-right text-xs py-4">
-            <a href="https://paulfruitful.netlify.com">@ 2022 Paul Fruitful.</a>
+            <a href="https://praisebuka.netlify.app" target="_blank">@ 2022 Praise Ebuka.</a>
         </div>
     </div>
 </footer>

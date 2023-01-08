@@ -16,12 +16,16 @@ use App\Http\Controllers\listControl;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\applicationControl;
+use App\Http\Controllers\fallbackController;
 use App\Models\User;
 use Illuminate\Http\Request;
+
+
+
 Route::get('/check',function(){
     return response()->json([User::all()]);
 });
-Route::get('/', [listControl::class,'index']);
+Route::get('/home', [listControl::class,'index']);
 //Gets the registration page
 Route::get('/register',[userController::class,'create']);
 //Stores the user profile in our database
@@ -35,6 +39,9 @@ Route::get('/login',function(){
 //User login validation route
 Route::post('/login',[userController::class,'login'])->name('login');
 
+//The route for the Invoke Method
+Route::controller(fallbackController::class) ->group(function() {
+    
 //shows all available jobs
 Route::get('/listings',function(){
     return view('joblists',[
@@ -80,4 +87,15 @@ Route::put('/{listing}/edit','update');
 //The route to the deletion of a listing
 Route::delete('/{listing}/delete','destroy');
 }); 
+
 });
+
+
+    
+//Calling the fallBack Route so that if there's a 404 page, It'll simply redirect them to the fallback
+Route::fallback( function () {
+    return view('layouts.boiler');
+
+});
+});
+
